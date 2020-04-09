@@ -4,7 +4,7 @@
 }
 
 body {
-  background: orange;
+  background: #000;
 }
 
 .padd-top-bott {
@@ -14,17 +14,23 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  background: rgba(255, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 #slider {
-  background: rgba(255, 0, 0, 0.2);
   height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#slider .slider-img {
+  display: flex;
+  flex-direction: row;
+}
+img {
+  max-width: 100%;
+}
 .prev img,
 .next img {
   width: 50px;
@@ -45,6 +51,7 @@ left: 10px;
 #slider .next {
 right: 10px;
 }
+
 #slider .slider-img img {
   display: none; //jQuery
 }
