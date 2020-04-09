@@ -1,3 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 body {
   background: orange;
+}
+
+.padd-top-bott {
+  padding: 20px 0px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+#slider {
+  background: rgba(255, 0, 0, 0.2);
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev img,
+.next img {
+  width: 50px;
+  height: auto;
+}
+.prev,
+.next {
+  width: 50px;
+  height: auto;
+  position: absolute;
+}
+
+#slider .prev {
+left: 10px;
+}
+
+#slider .next {
+right: 10px;
+}
+#slider .slider-img img {
+  display: none; //jQuery
+}
+
+#slider .slider-img img.active {
+  display: block; //jQuery
 }
