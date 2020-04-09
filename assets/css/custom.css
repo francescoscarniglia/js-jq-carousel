@@ -11,6 +11,14 @@ body {
   padding: 20px 20px;
 }
 
+.col-light {
+color: rgba(255, 255, 255, 0.5);
+}
+
+.small-t {
+  font-size: 0.8em;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -30,24 +38,24 @@ body {
 img {
   max-width: 100%;
 }
-.prev img,
-.next img {
+#slider .prev-btn img,
+#slider .next-btn img {
   width: 50px;
   height: auto;
 }
-.prev,
-.next {
+#slider .prev-btn,
+#slider .next-btn {
   width: 50px;
   height: auto;
   position: absolute;
   cursor: pointer;
 }
 
-#slider .prev {
+#slider .prev-btn {
 left: 30px;
 }
 
-#slider .next {
+#slider .next-btn {
 right: 30px;
 }
 

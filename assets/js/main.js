@@ -1,5 +1,3 @@
-console.log('js ok');
-
 // Esercizio di oggi: Slider
 // Descrizione:
 // Creare uno slider di immagini
@@ -17,3 +15,33 @@ console.log('js ok');
 // classe applicata a un elemento
 // Super importanti anche prev() e next()
 // Ricordate il $(document).ready() :wink:
+$(document).ready(function(){
+console.log('documento pronto');
+
+var btnL = $('.prev-btn');
+var btnR = $('.next-btn');
+
+btnL.click(function(){
+  $('#slider .slider-img img').prev('img').addClass('active');
+  $('#slider .slider-img img').next('img').removeClass('active');
+  // $('#slider .slider-img img').next().addClass('active');
+  console.log('hai cliccato a SX');
+});
+
+btnR.click(function(){
+  $('#slider .slider-img img').prev('img').removeClass('active');
+  $('#slider .slider-img img').next('img').addClass('active');
+  console.log('hai cliccato a DX');
+});
+
+
+
+
+
+
+
+
+
+
+
+}); // ready
