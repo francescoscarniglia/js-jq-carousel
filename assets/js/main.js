@@ -16,10 +16,12 @@
 // Super importanti anche prev() e next()
 // Ricordate il $(document).ready() :wink:
 
+// questa variabile mi serve per START / STOP
+var semaforo = "verde";
 
 $(document).ready(function() {
 console.log('documento pronto');
-
+$(document).on("keyup" , muoviSlider);
 
 
 // invoco la funzione evento sulle frecce
@@ -38,27 +40,138 @@ function addEventArrow (){
 // freccia sinistra
 function clickArrowLeft() {
   console.log('Click Sx');
-
-  if ($("#slider .slider-list li").hasClass("first active")){
-      $('.last').addClass('active');
-  } else if($("#slider .slider-list li").hasClass("active last")) {
-    $('#slider .slider-list li .first').addClass('active');
-  }else{
-    $('#slider .slider-list li').next('li').removeClass('active');
-    $('#slider .slider-list li').prev('li').addClass('active');
+  if(semaforo == "verde") {
+    semaforo = "rosso";
+    muoviASinistra();
   }
 }
 
 // freccia destra
 function clickArrowRight() {
   console.log('Click  Dx');
-  $('#slider .slider-list li').prev('li').removeClass('active');
-  $('#slider .slider-list li').next('li').addClass('active');
+	if (semaforo == "verde") {
+    semaforo = "rosso";
+	   muoviADestra();
+	}
+}
+
+function muoviADestra()
+{
+	console.log("MuovoADestra...");
+  //per muovere a destra lo slider devo ricavare il valore del margine sinistro e trasformarlo in un valore numerico
+	var posizioneInPixel = $("#main-content #slider #slide_img").css("margin-left");
+	var posizioneInNumeri = parseInt(posizioneInPixel);
+	console.log("Posizione = " + posizioneInPixel);
+	console.log("Posizione = " + posizioneInNumeri);
+
+  // mi serve un contenitore entro un certo limite per capire quando fermare lo slider
+	var larghezza_gallery = parseInt($("#main-content #slider").css("width"));
+	var numero_immagini = $ ("#main-content #slider #slide_img li").length;
+	var limite_widht = (larghezza_gallery*numero_immagini) + larghezza_gallery;
+   console.log(larghezza_gallery);
+   console.log(numero_immagini);
+   console.log(limite_widht);
+
+   // se il margin-left (0) è uguale al contenitore
+	if(posizioneInNumeri == limite_widht)
+	{
+		console.log("Non muovere la Gallery");
+		semaforo = "verde";
+	}
+//altrimenti muovi la galleria
+	else
+	{
+		console.log("Muovi la Gallery");
+		var nuovaPosizione = posizioneInNumeri - 960; // margin left - la width di un elemento li
+		var nuovaPosizioneInPixel = nuovaPosizione + "px"; // nuova posizione (in pixel + 'px')
+		var duration = 2 * 1000; // animazione
+		$ ("#main-content #slider #slide_img").animate(
+		{
+		"margin-left" : nuovaPosizioneInPixel
+		}, duration, animazione_finita);
+
+	 }
+}
+
+
+function muoviASinistra(){
+
+  console.log("MuovoASinistra...");
+  //per muovere a destra lo slider devo ricavare il valore del margine sinistro e trasformarlo in un valore numerico
+	var posizioneInPixel = $("#main-content #slider #slide_img").css("margin-left");
+	var posizioneInNumeri = parseInt(posizioneInPixel);
+	console.log("Posizione = " + posizioneInPixel);
+	console.log("Posizione = " + posizioneInNumeri);
+
+  // mi serve un contenitore entro un certo limite per capire quando fermare lo slider
+	var larghezza_gallery = parseInt($("#main-content #slider").css("width"));
+	var numero_immagini = $ ("#main-content #slider #slide_img li").length;
+	var limite_widht = (larghezza_gallery*numero_immagini) + larghezza_gallery;
+   console.log(larghezza_gallery);
+   console.log(numero_immagini);
+   console.log(limite_widht);
+
+   // se il margin-left (0) è uguale al contenitore
+	if(posizioneInNumeri == 0)
+	{
+		console.log("Non muovere la Gallery");
+		semaforo = "verde";
+	}
+//altrimenti muovi la galleria
+	else
+	{
+		console.log("Muovi la Gallery");
+		var nuovaPosizione = posizioneInNumeri + 960; // margin left - la width di un elemento li
+		var nuovaPosizioneInPixel = nuovaPosizione + "px"; // nuova posizione (in pixel + 'px')
+		var duration = 2 * 1000; // animazione
+		$ ("#main-content #slider #slide_img").animate(
+		{
+		"margin-left" : nuovaPosizioneInPixel
+		}, duration, animazione_finita);
+
+	 }
+
+}
+
+
+function animazione_finita() {
+	console.log("Fine animazione")
+	semaforo = "verde";
+}
+
+function muoviSlider(e) {
+    console.log(e.which); // scopro il numero delle frecce
+    if(e.which == 37) {
+      console.log('freccia sx');
+      muoviASinistra()
+    } if(e.which == 39) {
+      console.log('Freccia dx');
+      muoviADestra()
+    }
 }
 
 
 
-
+// freccia sinistra
+// function clickArrowLeft() {
+//   console.log('Click Sx');
+//
+//   if ($("#slider .slider-list li").hasClass("first active")){
+//       $('.last').addClass('active');
+//   } else if($("#slider .slider-list li").hasClass("active last")) {
+//     $('#slider .slider-list li .first').addClass('active');
+//   }else{
+//     $('#slider .slider-list li').next('li').removeClass('active');
+//     $('#slider .slider-list li').prev('li').addClass('active');
+//   }
+// }
+//
+// // freccia destra
+// function clickArrowRight() {
+//   console.log('Click  Dx');
+//   $('#slider .slider-list li').prev('li').removeClass('active');
+//   $('#slider .slider-list li').next('li').addClass('active');
+// }
 
 
 

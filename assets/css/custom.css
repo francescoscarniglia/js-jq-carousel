@@ -62,7 +62,8 @@ img {
 }
 
 #slider:hover .prev-btn,
-#slider:hover .next-btn {
+#slider:hover .next-btn,
+#slider:hover nav {
   display: block;
 }
 
@@ -99,4 +100,51 @@ ul.slider-list li {
   	float: left;
   	width: 960px;
   	height: 360px;
+}
+
+
+.gallery nav
+{
+	position: absolute;
+	z-index: 2;
+	bottom:20px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+  display: none;
+
+}
+
+.gallery nav li
+{
+  position: relative;
+  width: 14px;
+  text-align: center;
+  height: 14px;
+  background-color: #fff;
+  border-radius: 7px;
+  display: inline-block;
+  list-style: none;
+  margin-left: 10px;
+  cursor: pointer;
+  transition-property: transform;
+  transition-duration: 0.5s;
+
+}
+
+.gallery nav li:hover
+{
+	transform: scale(1.2,1.2);
+	-webkit-transform: scale(1.2,1.2);
+	-moz-transform: scale(1.2,1.2);
+	-o-transform: scale(1.2,1.2);
+	-ms-transform: scale(1.2,1.2);
+}
+
+.gallery nav li:first-child
+{
+	margin-left: 0px;
 }
