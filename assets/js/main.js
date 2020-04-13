@@ -38,8 +38,15 @@ function addEventArrow (){
 // freccia sinistra
 function clickArrowLeft() {
   console.log('Click Sx');
-  $('#slider .slider-list li').next('li').removeClass('active');
-  $('#slider .slider-list li').prev('li').addClass('active');
+
+  if ($("#slider .slider-list li").hasClass("first active")){
+      $('.last').addClass('active');
+  } else if($("#slider .slider-list li").hasClass("active last")) {
+    $('#slider .slider-list li .first').addClass('active');
+  }else{
+    $('#slider .slider-list li').next('li').removeClass('active');
+    $('#slider .slider-list li').prev('li').addClass('active');
+  }
 }
 
 // freccia destra
