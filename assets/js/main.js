@@ -15,33 +15,60 @@
 // classe applicata a un elemento
 // Super importanti anche prev() e next()
 // Ricordate il $(document).ready() :wink:
-$(document).ready(function(){
+$(document).ready(function() {
 console.log('documento pronto');
 
-var btnL = $('.prev-btn');
-var btnR = $('.next-btn');
-
-btnL.click(function(){
-  $('#slider .slider-img img').prev('img').addClass('active');
-  $('#slider .slider-img img').next('img').removeClass('active');
-  // $('#slider .slider-img img').next().addClass('active');
-  console.log('hai cliccato a SX');
-});
-
-btnR.click(function(){
-  $('#slider .slider-img img').prev('img').removeClass('active');
-  $('#slider .slider-img img').next('img').addClass('active');
-  console.log('hai cliccato a DX');
-});
 
 
-
-
-
-
-
-
-
+// invoco la funzione evento sulle frecce
+addEventArrow ();
 
 
 }); // ready
+
+// funzione per le frecce
+function addEventArrow (){
+  $('#arrow-l').click(clickArrowLeft);
+  $('#arrow-r').click(clickArrowRight);
+}
+
+function clickArrowLeft() {
+  console.log('Hai cliccato a sX');
+}
+
+function clickArrowRight() {
+  console.log('Hai cliccato a dX');
+}
+
+
+
+// old project (in (document).ready)
+// var btnL = $('.prev-btn');
+// var btnR = $('.next-btn');
+// var firstImg = $('.first');
+// var lastImg = $('.last');
+// var imgActive = $('.active');
+
+// var active = $('se');
+// var firstImg = $('.slider-img #img-1');
+// var lastImg = $('.slider-img #img-3');
+//
+// if(firstImg == active){
+//     console.log('img- 1');
+// }else if(lastImg == active){
+//   console.log('ultima img');
+// } else {
+//   console.log('tra 1 e 2');
+// }
+
+// btnL.click(function(){
+//
+//   // $('#slider .slider-img img').next().addClass('active');
+//   console.log('hai cliccato a SX');
+// });
+//
+// btnR.click(function(){
+//
+//   $('#slider .slider-img img').next('img').addClass('active');
+//   console.log('hai cliccato a DX');
+// });
