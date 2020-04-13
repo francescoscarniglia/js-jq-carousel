@@ -19,6 +19,7 @@ color: rgba(255, 255, 255, 0.5);
   font-size: 0.8em;
 }
 
+
 #main-content {
 
 	margin: auto;
@@ -77,4 +78,12 @@ ul.slider-list li {
   	float: left;
   	width: 960px;
   	height: 360px;
+}
+
+ul.slider-list li {
+  display: none;
+}
+
+ul.slider-list li.active {
+  display: block;
 }

@@ -15,8 +15,7 @@
 // classe applicata a un elemento
 // Super importanti anche prev() e next()
 // Ricordate il $(document).ready() :wink:
-// dichiaro una var booleana, mi serve come STOP per perfmare lo slider
-var semaforo = "verde";
+
 
 $(document).ready(function() {
 console.log('documento pronto');
@@ -36,36 +35,28 @@ function addEventArrow (){
   $('#arrow-r').click(clickArrowRight);
 }
 
-// freccia sinistra e stato del semafaforo
+// freccia sinistra
 function clickArrowLeft() {
-  console.log('Hai cliccato a sX');
-  if(semaforo == "verde") {
-    semaforo = "rosso";
-    moveLeft();
-  }
+  console.log('Click Sx');
+  $('#slider .slider-list li').next('li').removeClass('active');
+  $('#slider .slider-list li').prev('li').addClass('active');
 }
 
+// freccia destra
 function clickArrowRight() {
-  console.log('Hai cliccato a dX');
-  if(semaforo == 'verde'){
-    semaforo = "rosso";
-    moveRight();
-  }
-}
-
-function moveLeft(){
-    console.log('muovo a sx');
-}
-
-
-function moveRight(){
-    console.log('muovo a Dx');
+  console.log('Click  Dx');
+  $('#slider .slider-list li').prev('li').removeClass('active');
+  $('#slider .slider-list li').next('li').addClass('active');
 }
 
 
 
 
-// old project (in (document).ready)
+
+
+
+// old project
+//$(document).ready(function() {
 // var btnL = $('.prev-btn');
 // var btnR = $('.next-btn');
 // var firstImg = $('.first');
@@ -95,3 +86,4 @@ function moveRight(){
 //   $('#slider .slider-img img').next('img').addClass('active');
 //   console.log('hai cliccato a DX');
 // });
+//}); // ready
