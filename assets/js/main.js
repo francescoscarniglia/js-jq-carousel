@@ -74,7 +74,7 @@ function muoviADestra()
    console.log(numero_immagini);
    console.log(limite_widht);
 
-   // se il margin-left (0) è uguale al contenitore
+   // se il margin-left  è uguale al contenitore
 	if(posizioneInNumeri == limite_widht)
 	{
 		console.log("Non muovere la Gallery");
@@ -113,7 +113,7 @@ function muoviASinistra(){
    console.log(numero_immagini);
    console.log(limite_widht);
 
-   // se il margin-left (0) è uguale al contenitore
+   // se il margin-left è uguale a 0 in questo caso
 	if(posizioneInNumeri == 0)
 	{
 		console.log("Non muovere la Gallery");
