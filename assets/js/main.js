@@ -27,6 +27,8 @@ $(document).on("keyup" , muoviSlider);
 // invoco la funzione evento sulle frecce
 addEventArrow ();
 
+// preparo la gallery
+setupGallery();
 
 
 }); // ready
@@ -149,7 +151,6 @@ function muoviSlider(e) {
       muoviADestra()
     }
 }
-
 
 
 // freccia sinistra
