@@ -15,6 +15,9 @@
 // classe applicata a un elemento
 // Super importanti anche prev() e next()
 // Ricordate il $(document).ready() :wink:
+// dichiaro una var booleana, mi serve come STOP per perfmare lo slider
+var semaforo = "verde";
+
 $(document).ready(function() {
 console.log('documento pronto');
 
@@ -22,6 +25,7 @@ console.log('documento pronto');
 
 // invoco la funzione evento sulle frecce
 addEventArrow ();
+
 
 
 }); // ready
@@ -32,13 +36,32 @@ function addEventArrow (){
   $('#arrow-r').click(clickArrowRight);
 }
 
+// freccia sinistra e stato del semafaforo
 function clickArrowLeft() {
   console.log('Hai cliccato a sX');
+  if(semaforo == "verde") {
+    semaforo = "rosso";
+    moveLeft();
+  }
 }
 
 function clickArrowRight() {
   console.log('Hai cliccato a dX');
+  if(semaforo == 'verde'){
+    semaforo = "rosso";
+    moveRight();
+  }
 }
+
+function moveLeft(){
+    console.log('muovo a sx');
+}
+
+
+function moveRight(){
+    console.log('muovo a Dx');
+}
+
 
 
 
