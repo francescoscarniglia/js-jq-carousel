@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0px;
 }
 
 body {
@@ -19,6 +20,9 @@ color: rgba(255, 255, 255, 0.5);
   font-size: 0.8em;
 }
 
+.text-center {
+  text-align: center;
+}
 
 #main-content {
 
@@ -31,7 +35,6 @@ color: rgba(255, 255, 255, 0.5);
 
 #slider {
   position: relative;
-    width: 960px;
   	height: 350px;
   	overflow: hidden;
   	background-color: red;
@@ -55,19 +58,37 @@ img {
   transform: translateY(-50%);
   position: absolute;
   cursor: pointer;
+  display: none;
+}
+
+#slider:hover .prev-btn,
+#slider:hover .next-btn {
+  display: block;
 }
 
 #slider .prev-btn {
 left: 30px;
+animation: moveL .7s;
 }
 
 #slider .next-btn {
 right: 30px;
+animation: moveR .7s;
+}
+
+@keyframes moveL {
+  from {left: 0px;}
+  to {left: 30px;}
+}
+
+@keyframes moveR {
+  from {right: 0px;}
+  to {right: 30px;}
 }
 
 ul.slider-list {
   list-style: none;
-  width: 3200px;
+  width: 2880px; /* 960*3*/
 	height: 360px;
   padding: 0;
 	background-color: black;
@@ -78,12 +99,4 @@ ul.slider-list li {
   	float: left;
   	width: 960px;
   	height: 360px;
-}
-
-ul.slider-list li {
-  display: none;
-}
-
-ul.slider-list li.active {
-  display: block;
 }
